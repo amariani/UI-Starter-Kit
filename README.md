@@ -10,7 +10,7 @@ UI Starter Kit es simplemente un paquete de herramientas que utilizo para comenz
 ## Cómo se utiliza
 Cloná este repositorio:
 ```
-git clone
+git clone https://github.com/amariani/UI-Starter-Kit.git
 ```
 
 Instalá las dependencias:
