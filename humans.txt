@@ -1,0 +1,27 @@
+﻿/* TEAM */
+	Chief:Ariel Iván Mariani
+	Contact: ariel.m84 [at] gmail.com
+	Twitter: @arielmariani
+	From:Córdoba, Córdoba, Argentina
+
+	UI developer and BackEnd: Ariel Iván Mariani
+	Twitter: @arielmariani
+	From:Córdoba, Córdoba, Argentina
+
+/* THANKS */
+
+	Graphic Design: John Doe
+	Contact: John [at] example.com 
+	Twitter: @dummyUser
+	From: EEUU
+
+	Photography: Juana Ejemplo
+	Contact: juanal [at] ejemplo.com 
+	Twitter: @juanaEjemplo
+	From: Buenos Aires, Argentina
+
+/* SITE */
+	Last update:2015/08/29
+	Language: Castellano
+	Doctype:HTML5
+	IDE: Sublime Text, FileZilla, Gimp, Mercurial
