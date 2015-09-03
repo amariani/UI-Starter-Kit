@@ -1,5 +1,5 @@
 /**********************************************************
-**********  Declaracion e Iniciacion de Plugins  **********
+**********  Declaración e Iniciación de Plugins  **********
 **********************************************************/
 
 // Gulp
@@ -13,18 +13,16 @@ var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var imagemin = require('gulp-imagemin');
-var livereload = require('gulp-livereload');
-var lr = require('tiny-lr');
-var server = lr();
-
+var browserSync = require('browser-sync').create();
 
 /**********************************************************
 **********        Variables del Proyecto        **********
 **********************************************************/
 var project_name = "ui_starter_kit";
+var project_base = "./";
 
 /**********************************************************
-**********        Configuracion de Rutas        **********
+**********        Configuración de Rutas        **********
 **********************************************************/
 
 // Rutas principales
@@ -45,7 +43,13 @@ var paths = {
     vendor_scripts:  [
         bower_path + 'jquery/dist/jquery.min.js',
         bootstrap_path + 'js/bootstrap.min.js',
-        source_path + 'js/ie10-viewport-bug-workaround.js'
+        source_path + 'js/ie10-viewport-bug-workaround.js',
+        // Animations Plugins
+        source_path + 'js/classie.js',
+        source_path + 'js/cbpAnimatedHeader.js',
+        // Contact Form JavaScript
+        source_path + 'js/jqBootstrapValidation.js',
+        source_path + 'js/contact_me.js'
     ]
 };
 
@@ -55,6 +59,14 @@ var destination_paths = {
     css:      assets_path + 'css',
     js:       assets_path + 'js',
     fonts:    assets_path + 'fonts'
+};
+
+// Browsersyn Watcher Routes
+var watchPaths = {
+    html:      '*.html',
+    images:    project_base + destination_paths.images + '/*.*',
+    css:       project_base + destination_paths.css + '/*.css',
+    js:        project_base + destination_paths.js + '/*.js'
 };
 
 /**********************************************************
@@ -122,10 +134,26 @@ gulp.task('imagemin', function() {
 
 // Watch files
 gulp.task('watch', function(event) {
+
+    // Browsersync inicia el servidor desde el root del proyecto
+    browserSync.init({
+        server: {
+            baseDir: project_base
+        }
+    });
+
     gulp.watch(paths.less, ['buildLess']);
     gulp.watch(paths.images, ['imagemin']);
     gulp.watch(paths.vendor_fonts, ['copyVendorFonts']);
     gulp.watch(paths.scripts, ['uglify']);
+
+    //Browsersync Watcher
+    gulp.watch([
+        watchPaths.html,
+        watchPaths.images,
+        watchPaths.css,
+        watchPaths.js
+    ]).on("change", browserSync.reload);
 });
 
 gulp.task('fullBuild', ['buildLess', 'imagemin', 'copyVendorFonts', 'vendorScripts', 'uglify']);
