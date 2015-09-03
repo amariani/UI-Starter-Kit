@@ -49,12 +49,13 @@ Ejecutá las tareas de bower para compilar todo:
 $ gulp fullBuild
 ```
 
-### Opcional y recomendado durante el desarrollo:
+### Recomendado durante el desarrollo:
 ```sh
-$ gulp watch
+$ gulp
 ```
+> Esto iniciará un servidor local con BrowserSync.
 > Con el comando anterior, cada cambio que se realice en algún archivo LESS,
-> Javascript o cualquier imágen que se agregue a src/imgs se correrán las
+> Javascript o imágen que se agregue a src/imgs se correrán las
 > tareas de Gulp para compilar los archivos, comprimirlos y copiarlos a la
 > carpeta assets.
 
